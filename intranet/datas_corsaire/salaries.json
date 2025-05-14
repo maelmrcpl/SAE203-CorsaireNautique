@@ -1,0 +1,42 @@
+[
+    {
+        "utilisateur": "marcepoil",
+        "prenom": "Ma\u00ebl",
+        "nom": "Marcepoil",
+        "motdepasse": "$2y$10$93AuP6she7CCiyb6v7v1R.WRRh7KSI75s\/Gjni5J63NTnI3snNtuS",
+        "email": "user@user.com",
+        "role": "user",
+        "photo": "Unknown.jpg",
+        "bio": "D\u00e9veloppeur passionn\u00e9 par le web et les nouvelles technologies."
+    },
+    {
+        "utilisateur": "aloyermalhere",
+        "prenom": "Alexis",
+        "nom": "Loyer-Malh\u00e8re",
+        "email": "user@user.com",
+        "motdepasse": "bonjour",
+        "role": "user",
+        "photo": "Unknown.jpg",
+        "bio": "D\u00e9veloppeur passionn\u00e9 par le web et les nouvelles technologies."
+    },
+    {
+        "utilisateur": "mmarcepoil",
+        "prenom": "mael",
+        "nom": "Marcepoil",
+        "email": "m.marcepoil@gmail.com",
+        "motdepasse": "$2y$10$j9GcyRF1fs4UOcvJs7QhHusgThzvqT1HrfSm9mOpw\/OTibtuqFhiO",
+        "role": "admin",
+        "photo": "mael.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "aloyermalhere",
+        "prenom": "Alexis",
+        "nom": "Loyer-Malh\u00e8re",
+        "email": "alexis.loyermalhere@gmail.com",
+        "motdepasse": "$2y$10$92VwgHEkHWv2GlFDxDVWGezAUOoravgxs\/2qVgLwcvieEGrs2C4Z.",
+        "role": "admin",
+        "photo": "Unknown.jpg",
+        "bio": "Cet utilisateur est un utilisateur de teste."
+    }
+]
