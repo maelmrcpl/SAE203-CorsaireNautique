@@ -1,9 +1,14 @@
 <?php
 session_start();
-//include "script/fonction.php";
 
-$usersFile = 'data/salaries.json';
+if (!isset($_SESSION['utilisateur']) || $_SESSION['role'] !== 'admin') {
+    header('Location: index.php');
+    exit;
+}
+
+$usersFile = 'data_corsaire/salaries.json';
 $errors = [];
+$uploadDir = 'images_users/';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $utilisateur = isset($_POST['pseudo']) ? trim($_POST['pseudo']) : '';
@@ -15,7 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $role = isset($_POST['role']) ? $_POST['role'] : '';
     $bio = isset($_POST['bio']) ? trim($_POST['bio']) : '';
 
-    // Vérification des champs requis
     if (!$utilisateur || !$prenom || !$nom || !$email || !$motdepasse || !$motdepasseConfirm || !$role) {
         $errors[] = 'Tous les champs obligatoires doivent être remplis.';
     }
@@ -24,12 +28,60 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = 'Les mots de passe ne correspondent pas.';
     }
 
-    $users = json_decode(file_get_contents($usersFile), true);
+    $usersContent = file_exists($usersFile) ? file_get_contents($usersFile) : '[]';
+    $users = json_decode($usersContent, true);
+    if (!is_array($users)) $users = [];
+
     foreach ($users as $user) {
         if (isset($user['email']) && $user['email'] === $email) {
-            $errors[] = 'Cet email est déjà utilisé';
+            $errors[] = 'Cet email est déjà utilisé.';
             break;
         }
+    }
+
+    $photoName = '';
+    if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK) {
+        $fileTmpPath = $_FILES['photo']['tmp_name'];
+        $fileName = $_FILES['photo']['name'];
+        $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+        $allowedExts = ['jpg', 'jpeg', 'png', 'gif'];
+        if (!in_array($fileExt, $allowedExts)) {
+            $errors[] = 'Le fichier doit être une image (jpg, jpeg, png, gif).';
+        } else {
+            $photoName = $utilisateur . '.png';
+            $destPath = $uploadDir . $photoName;
+
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0755, true);
+            }
+
+            if ($fileExt !== 'png') {
+                switch ($fileExt) {
+                    case 'jpg':
+                    case 'jpeg':
+                        $image = imagecreatefromjpeg($fileTmpPath);
+                        break;
+                    case 'gif':
+                        $image = imagecreatefromgif($fileTmpPath);
+                        break;
+                    default:
+                        $image = null;
+                        break;
+                }
+
+                if ($image) {
+                    imagepng($image, $destPath);
+                    imagedestroy($image);
+                } else {
+                    $errors[] = "Erreur lors de la conversion de l'image.";
+                }
+            } else {
+                move_uploaded_file($fileTmpPath, $destPath);
+            }
+        }
+    } else {
+        $errors[] = 'La photo de profil est obligatoire.';
     }
 
     if (empty($errors)) {
@@ -42,52 +94,60 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'email' => $email,
             'motdepasse' => $hashedPassword,
             'role' => $role,
-            'photo' => 'Unknown.jpg',
+            'photo' => $photoName,
             'bio' => $bio
         ];
 
         $users[] = $newUser;
-
         file_put_contents($usersFile, json_encode($users, JSON_PRETTY_PRINT));
-        
-        echo '<div class="alert alert-success text-center">Inscription réussie !</div>';
-        header("Location: index.php");
+
+        header("Location: index.php?creation=success");
         exit;
     }
 }
 ?>
 
+<!-- Affichage des erreurs -->
+<?php if (!empty($errors)): ?>
+    <div class="alert alert-danger">
+        <ul>
+            <?php foreach ($errors as $err): ?>
+                <li><?= htmlspecialchars($err) ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
 
-<form method="POST" action="">
+<!-- Formulaire -->
+<form method="POST" action="" enctype="multipart/form-data">
     <div class="mb-3">
         <label class="form-label">Pseudo:</label>
-        <input type="text" name="pseudo" class="form-control" placeholder="Votre pseudo" required>
+        <input type="text" name="pseudo" class="form-control" required>
     </div>
 
     <div class="mb-3">
         <label class="form-label">Prénom:</label>
-        <input type="text" name="prenom" class="form-control" placeholder="Votre prénom" required>
+        <input type="text" name="prenom" class="form-control" required>
     </div>
 
     <div class="mb-3">
         <label class="form-label">Nom:</label>
-        <input type="text" name="nom" class="form-control" placeholder="Votre nom" required>
+        <input type="text" name="nom" class="form-control" required>
     </div>
 
     <div class="mb-3">
         <label class="form-label">Email:</label>
-        <input type="email" name="email" class="form-control" placeholder="Ex: user@domaine.com" required>
+        <input type="email" name="email" class="form-control" required>
     </div>
 
     <div class="mb-3">
         <label class="form-label">Mot de passe:</label>
-        <input type="password" name="password" id="password" class="form-control" required>
+        <input type="password" name="password" class="form-control" required>
     </div>
 
     <div class="mb-3">
         <label class="form-label">Confirmer le mot de passe:</label>
-        <input type="password" name="confirm_password" id="confirm_password" class="form-control" required>
-        <small id="password_error" class="text-danger"></small>
+        <input type="password" name="confirm_password" class="form-control" required>
     </div>
 
     <div class="mb-3">
@@ -102,10 +162,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="mb-3">
         <label class="form-label">Bio (facultatif):</label>
-        <textarea name="bio" class="form-control" rows="3" placeholder="Parlez un peu de vous..."></textarea>
+        <textarea name="bio" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Photo de profil (obligatoire):</label>
+        <input type="file" name="photo" accept="image/*" class="form-control" required>
     </div>
 
     <div class="d-grid">
-        <button type="submit" class="btn btn-info" onclick="return validerMotDePasse()">S'inscrire</button>
+        <button type="submit" class="btn btn-info">Créer le compte</button>
     </div>
 </form>
