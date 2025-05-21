@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Réservation Bateau Saint-Malo ⇌ Saint-Lunaire</title>
+    <script>
+        function calculerPri) {
+            // Récupérer les quantités
+            let total = 0;
+
+            const enfant = (v) => parseInt(document.getElementById(v)) || 0;
+
+            // Aller simple
+            total += enfant("as_enfant") * 0;
+            total += enfant("as_ado") * 6;
+            total += enfant("as_adulte") * 8;
+
+            // Pass Journée
+            total += enfant("pj_enfant") * 0;
+            total += enfant("pj_ado") * 10;
+            total += enfant("pj_adulte") * 24;
+
+            // Pass Famille
+            total += enfant("pf_nb") * 35;
+
+            document.getElementById("prix").textContent = total + " €";
+        }
+    </script>
+</head>
+<body>
+    <h1>Réservation de bateau Saint-Malo ⇌ Saint-Lunaire</h1>
+
+    <form method="POST">
+        <label>Nom : <input type="text" name="nom" required></label><br><br>
+        <label>Prénom : <input type="text" name="prenom" required></label><br><br>
+        <label>Email : <input type="email" name="email" required></label><br><br>
+
+        <h3>Aller ou Retour Simple</h3>
+        Enfants (-10 ans) : <input type="number" name="as_enfant" id="as_enfant" value="0" min="0" oninput="calculerPri)"><br>
+        Adolescents (10–17 ans) : <input type="number" name="as_ado" id="as_ado" value="0" min="0" oninput="calculerPri)"><br>
+        Adultes (18 ans et +) : <input type="number" name="as_adulte" id="as_adulte" value="0" min="0" oninput="calculerPri)"><br><br>
+
+        <h3>Pass Journée</h3>
+        Enfants (-10 ans) : <input type="number" name="pj_enfant" id="pj_enfant" value="0" min="0" oninput="calculerPri)"><br>
+        Adolescents (10–17 ans) : <input type="number" name="pj_ado" id="pj_ado" value="0" min="0" oninput="calculerPri)"><br>
+        Adultes (18 ans et +) : <input type="number" name="pj_adulte" id="pj_adulte" value="0" min="0" oninput="calculerPri)"><br><br>
+
+        <h3>Pass Famille (35 € pour 2 adultes + 2 enfants/ados)</h3>
+        Nombre de Pass Famille : <input type="number" name="pf_nb" id="pf_nb" value="0" min="0" oninput="calculerPri)"><br><br>
+
+        <p><strong>Prix estimé :</strong> <span id="prix">0 €</span></p>
+
+        <button type="submit">Réserver</button>
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nom = htmlspecialchars($_POST["nom"]);
+        $prenom = htmlspecialchars($_POST["prenom"]);
+        $email = htmlspecialchars($_POST["email"]);
+
+        function getVal($key) {
+            return isset($_POST[$key]) ? (int) $_POST[$key] : 0;
+        }
+
+        $total = 0;
+        $details = [];
+
+        // Aller simple
+        $as_e = getVal("as_enfant");
+        $as_a = getVal("as_ado");
+        $as_ad = getVal("as_adulte");
+
+        if ($as_e + $as_a + $as_ad > 0) {
+            $total += $as_e * 0 + $as_a * 6 + $as_ad * 8;
+            $details[] = "Aller simple : $as_e enfant(s), $as_a ado(s), $as_ad adulte(s)";
+        }
+
+        // Pass Journée
+        $pj_e = getVal("pj_enfant");
+        $pj_a = getVal("pj_ado");
+        $pj_ad = getVal("pj_adulte");
+
+        if ($pj_e + $pj_a + $pj_ad > 0) {
+            $total += $pj_e * 0 + $pj_a * 10 + $pj_ad * 24;
+            $details[] = "Pass journée : $pj_e enfant(s), $pj_a ado(s), $pj_ad adulte(s)";
+        }
+
+        // Pass Famille
+        $pf = getVal("pf_nb");
+        if ($pf > 0) {
+            $total += $pf * 35;
+            $details[] = "$pf Pass Famille";
+        }
+
+        echo "<h2>Confirmation de réservation</h2>";
+        echo "<p><strong>Nom :</strong> $nom</p>";
+        echo "<p><strong>Prénom :</strong> $prenom</p>";
+        echo "<p><strong>Email :</strong> $email</p>";
+        echo "<p><strong>Détails :</strong></p><ul>";
+        foreach ($details as $d) {
+            echo "<li>$d</li>";
+        }
+        echo "</ul>";
+        echo "<p><strong>Prix total :</strong> $total €</p>";
+    }
+    ?>
+</body>
+</html>
