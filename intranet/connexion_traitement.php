@@ -16,7 +16,7 @@ if (empty($_POST['utilisateur']) || empty($_POST['motdepasse'])) {
 $user = htmlspecialchars($_POST['utilisateur']);
 $password = trim($_POST['motdepasse']);
 
-$jsonFile = '../data/salaries.json';
+$jsonFile = 'datas_corsaire/salaries.json';
 
 // Vérifier que le fichier existe
 if (!file_exists($jsonFile)) {
@@ -47,7 +47,7 @@ foreach ($utilisateurs as $utilisateur) {
             $_SESSION["photo"] = isset($utilisateur["photo"]) ? $utilisateur["photo"] : null;
             $_SESSION["bio"] = isset($utilisateur["bio"]) ? $utilisateur["bio"] : null;
             
-            header("Location: profil.php");
+            header("Location: index.php");
             exit();
         } else {
             header("Location: connexion.php?erreur=2");
