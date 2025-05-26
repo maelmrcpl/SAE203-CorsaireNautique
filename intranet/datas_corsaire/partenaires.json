@@ -1,0 +1,45 @@
+ [
+ {
+    "nom": "Mayana Surf",
+    "telephone": "0611440340",
+    "email": "ecolemayanasurf@gmail.com",
+    "adresse": "32 rue André Chesnot, 35630 Hédé-Bazouges.",
+    "photo": "../image_partenaires/logo_surfmaya.jpg"
+  },
+  {
+    "nom": "Groupe Rouxel Marine",
+    "telephone": "0296410879",
+    "email": "rouxelmarine@wanadoo.fr",
+    "adresse": "lieu-dit Le Houet - Route de St Cast 22550 Matignon",
+    "photo": "../image_partenaires/logo_grouperouxelmarine.png"
+  },
+  {
+    "nom": "Groupe Roulier",
+    "telephone": "0299206520",
+    "email": "#",
+    "adresse": "27 Avenue Franklin Roosevelt, 35400 Saint-Malo",
+    "photo": "../image_partenaires/logo_grouperoulier.jpg"
+  },
+  {
+    "nom": "Comptoire de la mer",
+    "telephone": "0299400280",
+    "email": "eshop@comptoirdelamer.fr",
+    "adresse": "22 Quai De Trichet, 35400 Saint-Malo",
+    "photo": "../image_partenaires/logo_comptoirdelamer.png"
+  },
+  {
+    "nom": "EWS Saint Malo",
+    "telephone": "0783392448",
+    "email": "ewssaintmalo@gmail.com",
+    "adresse": "Gare Maritime, 35400 Saint-Malo",
+    "photo": "../image_partenaires/logo_ews.png"
+  },
+  {
+    "nom": "Yacht Club De Saint-Lunaire",
+    "telephone": "0299463004",
+    "email": "ycsl@ycsl.net",
+    "adresse": "51 rue du Yacht-Club, 35800 Saint-Lunaire",
+    "photo": "../image_partenaires/logo_ycsl.jpg"
+  }
+
+]

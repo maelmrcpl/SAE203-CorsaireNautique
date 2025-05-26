@@ -1,0 +1,242 @@
+[
+    {
+        "utilisateur": "dgatel",
+        "prenom": "David",
+        "nom": "Gatel",
+        "email": "d.gatel@gmail.com",
+        "motdepasse": "#",
+        "role": "admin",
+        "photo": "../image_users/dgatel.jpg",
+        "bio": "Fondateur & Directeur Général"
+    },
+    {
+        "utilisateur": "aguitton",
+        "prenom": "Alois",
+        "nom": "Guitton",
+        "email": "a.guitton@gmail.com",
+        "motdepasse": "#",
+        "role": "admin",
+        "photo": "../image_users/aguitton.jpg",
+        "bio": "Directeur des opérations"
+    },
+    {
+        "utilisateur": "frmenguy",
+        "prenom": "François-Regis",
+        "nom": "Menguy",
+        "email": "fr.menguy@gmail.com",
+        "motdepasse": "#",
+        "role": "admin",
+        "photo": "../image_users/frmenguy.jpg",
+        "bio": "Responsable développement & partenariats"
+    },
+    {
+        "utilisateur": "marcepoil",
+        "prenom": "Ma\u00ebl",
+        "nom": "Marcepoil",
+        "email": "user@user.com",
+        "motdepasse": "$2y$10$93AuP6she7CCiyb6v7v1R.WRRh7KSI75s\/Gjni5J63NTnI3snNtuS",
+        "role": "salarie",
+        "photo": "../image_users/homme1.jpg",
+        "bio": "D\u00e9veloppeur passionn\u00e9 par le web et les nouvelles technologies."
+    },
+    {
+        "utilisateur": "aloyermalhere",
+        "prenom": "Alexis",
+        "nom": "Loyer-Malh\u00e8re",
+        "email": "user@user.com",
+        "motdepasse": "bonjour",
+        "role": "salarie",
+        "photo": "../image_users/homme2.jpg",
+        "bio": "D\u00e9veloppeur passionn\u00e9 par le web et les nouvelles technologies."
+    },
+    {
+        "utilisateur": "mmarcepoil",
+        "prenom": "mael",
+        "nom": "Marcepoil",
+        "email": "m.marcepoil@gmail.com",
+        "motdepasse": "$2y$10$j9GcyRF1fs4UOcvJs7QhHusgThzvqT1HrfSm9mOpw\/OTibtuqFhiO",
+        "role": "admin",
+        "photo": "../image_users/homme3.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "elfoucher",
+        "prenom": "Elouan",
+        "nom": "Foucher",
+        "email": "e.fouhcer@gmail.com",
+        "motdepasse": "#",
+        "role": "admin",
+        "photo": "../image_users/homme4.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "slaine",
+        "prenom": "Samuel",
+        "nom": "Laine",
+        "email": "s.laine@gmail.com",
+        "motdepasse": "#",
+        "role": "admin",
+        "photo": "../image_users/homme5.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "osiddique",
+        "prenom": "Omar",
+        "nom": "Siddique",
+        "email": "o.siddique@gmail.com",
+        "motdepasse": "#",
+        "role": "salarie",
+        "photo": "../image_users/homme6.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "yprovost",
+        "prenom": "Yoann",
+        "nom": "Provost",
+        "email": "y.provost@gmail.com",
+        "motdepasse": "#",
+        "role": "salarie",
+        "photo": "../image_users/homme7.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "jhuard",
+        "prenom": "Julien",
+        "nom": "Huard",
+        "email": "j.huard@gmail.com",
+        "motdepasse": "#",
+        "role": "salarie",
+        "photo": "../image_users/homme8.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "saubigne",
+        "prenom": "Sylvie",
+        "nom": "Aubigne",
+        "email": "s.aubigne@gmail.com",
+        "motdepasse": "#",
+        "role": "salarie",
+        "photo": "../image_users/femme1.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "mlabrecque",
+        "prenom": "Matthieu",
+        "nom": "Labrecque",
+        "email": "m.labrecque@gmail.com",
+        "motdepasse": "#",
+        "role": "salarie",
+        "photo": "../image_users/homme9.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "ptisserand",
+        "prenom": "Peverell",
+        "nom": "Tisserand",
+        "email": "p.tisserand@gmail.com",
+        "motdepasse": "#",
+        "role": "salarie",
+        "photo": "../image_users/homme10.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "scouet",
+        "prenom": "Sargent",
+        "nom": "Couet",
+        "email": "s.couet@gmail.com",
+        "motdepasse": "#",
+        "role": "salarie",
+        "photo": "../image_users/homme11.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "dfongemie",
+        "prenom": "Delit",
+        "nom": "Fongemie",
+        "email": "d.fongemie@gmail.com",
+        "motdepasse": "#",
+        "role": "salarie",
+        "photo": "../image_users/homme12.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "fdouffet",
+        "prenom": "Frontino",
+        "nom": "Douffet",
+        "email": "f.douffet@gmail.com",
+        "motdepasse": "#",
+        "role": "salarie",
+        "photo": "../image_users/homme13.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "bsorel",
+        "prenom": "Bruce",
+        "nom": "Sorel",
+        "email": "b.sorel@gmail.com",
+        "motdepasse": "#",
+        "role": "salarie",
+        "photo": "../image_users/homme14.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "hbois",
+        "prenom": "Huette",
+        "nom": "Bois",
+        "email": "h.bois@gmail.com",
+        "motdepasse": "#",
+        "role": "salarie",
+        "photo": "../image_users/femme2.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "lsalois",
+        "prenom": "Lucille",
+        "nom": "Salois",
+        "email": "l.salois@gmail.com",
+        "motdepasse": "#",
+        "role": "salarie",
+        "photo": "../image_users/femme3.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "atardif",
+        "prenom": "Arber",
+        "nom": "Tardif",
+        "email": "a.tardif@gmail.com",
+        "motdepasse": "#",
+        "role": "salarie",
+        "photo": "../image_users/homme15.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "aanglais",
+        "prenom": "Ancelina",
+        "nom": "Anglais",
+        "email": "a.anglais@gmail.com",
+        "motdepasse": "#",
+        "role": "salarie",
+        "photo": "../image_users/femme4.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "ocharbonneau",
+        "prenom": "Odelette",
+        "nom": "Charbonneau",
+        "email": "o.charbonneau@gmail.com",
+        "motdepasse": "#",
+        "role": "salarie",
+        "photo": "../image_users/femme5.jpg",
+        "bio": ""
+    },
+    {
+        "utilisateur": "bbergeron",
+        "prenom": "Burnell",
+        "nom": "Bergeron",
+        "email": "b.bergeron@gmail.com",
+        "motdepasse": "#",
+        "role": "salarie",
+        "photo": "../image_users/homme16.jpg",
+        "bio": ""
+    }   
+]
