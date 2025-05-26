@@ -16,8 +16,8 @@
   <h3>Fichiers concernés :</h3>
   <ul>
     <li>inscription.php</li>
-    <li>traitement_inscription.php</li>
-    <li>db.php</li>
+    <li>data/salaries.json</li>
+    <li>image_users/nom_user.png</li>
   </ul>
 
   <h3>Champs du formulaire :</h3>
