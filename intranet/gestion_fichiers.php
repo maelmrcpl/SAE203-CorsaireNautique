@@ -1,3 +1,10 @@
+<?
+	session_start();
+	if(isset($_SESSION['utilisateur'])) {
+		header("Location:connexion.php");
+		exit();
+	}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -46,18 +53,6 @@
   <div id="table-container"></div>
 
   <script>
-    const utilisateur = "admin"; // ← change ça pour tester avec un autre utilisateur
-
-    const select = document.getElementById('json-select');
-    select.addEventListener('change', function () {
-      const fichier = this.value;
-      if (fichier) {
-        loadJSON(fichier);
-      } else {
-        document.getElementById('table-container').innerHTML = '';
-      }
-    });
-
     let currentData = []; // pour stocker les données du fichier
 
     function loadJSON(file) {
