@@ -38,9 +38,9 @@
   <label for="json-select">Fichier JSON :</label>
   <select id="json-select">
     <option value="">-- Sélectionnez un fichier --</option>
-    <option value="clients.json">Clients</option>
-    <option value="partenaires.json">Partenaires</option>
-    <option value="salaries.json">Salariés</option>
+    <option value="datas_corsaire/clients.json">Clients</option>
+    <option value="datas_corsaire/partenaires.json">Partenaires</option>
+    <option value="datas_corsaire/salaries.json">Salariés</option>
   </select>
 
   <div id="table-container"></div>
