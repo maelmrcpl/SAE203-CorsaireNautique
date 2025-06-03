@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	include 'functions.php';
 
+	include 'functions.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -19,8 +19,9 @@
 
     <section class="container mt-4 ml-5">
 
-    	<h1>Bonjour et bienvenue sur <span class="boldonse-regular text-brand" style="font-size: 1.5rem;">Corsaire Nautique</span> ! </h1>
+    	<h1>Bonjour et bienvenue sur l'intranet de <span class="boldonse-regular text-brand" style="font-size: 1.5rem;">Corsaire Nautique</span> ! </h1>
     	
+        <p>Restez connecter pour ne louper aucune information sur l'entreprise.</p>
 
     	
     </section>
