@@ -1,7 +1,14 @@
 <?php
 session_start();
+include "functions.php";
+$title = "Inscription";
+$description = "Page d'inscription intranet";
+$keywords = "inscription intranet";
+parametres($title, $description, $keywords);
+$actual = "Inscription";
+navigation($actual);
 
-if (!isset($_SESSION['utilisateur']) || $_SESSION['role'] !== 'admin') {
+if (!isUserAdmin()) {
     header('Location: index.php');
     exit;
 }
@@ -120,57 +127,70 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!-- Formulaire -->
 <form method="POST" action="" enctype="multipart/form-data">
-    <div class="mb-3">
-        <label class="form-label">Pseudo:</label>
-        <input type="text" name="pseudo" class="form-control" required>
-    </div>
+    <div class="container">
+  <div class="row">
+    <div class="col-12 col-md-4 mx-auto"> <!-- 4 colonnes sur medium+, centré -->
+      
+      <div class="mb-3">
+        <label for="pseudo" class="form-label">Pseudo:</label>
+        <input type="text" id="pseudo" name="pseudo" class="form-control" required>
+      </div>
 
-    <div class="mb-3">
-        <label class="form-label">Prénom:</label>
-        <input type="text" name="prenom" class="form-control" required>
-    </div>
+      <div class="mb-3">
+        <label for="prenom" class="form-label">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" class="form-control" required>
+      </div>
 
-    <div class="mb-3">
-        <label class="form-label">Nom:</label>
-        <input type="text" name="nom" class="form-control" required>
-    </div>
+      <div class="mb-3">
+        <label for="nom" class="form-label">Nom:</label>
+        <input type="text" id="nom" name="nom" class="form-control" required>
+      </div>
 
-    <div class="mb-3">
-        <label class="form-label">Email:</label>
-        <input type="email" name="email" class="form-control" required>
-    </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" id="email" name="email" class="form-control" required>
+      </div>
 
-    <div class="mb-3">
-        <label class="form-label">Mot de passe:</label>
-        <input type="password" name="password" class="form-control" required>
-    </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Mot de passe:</label>
+        <input type="password" id="password" name="password" class="form-control" required>
+      </div>
 
-    <div class="mb-3">
-        <label class="form-label">Confirmer le mot de passe:</label>
-        <input type="password" name="confirm_password" class="form-control" required>
-    </div>
+      <div class="mb-3">
+        <label for="confirm_password" class="form-label">Confirmer le mot de passe:</label>
+        <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
+      </div>
 
-    <div class="mb-3">
-        <label class="form-label">Rôle:</label>
-        <select name="role" class="form-select" required>
-            <option value="">-- Sélectionner un rôle --</option>
-            <option value="admin">Admin</option>
-            <option value="modérateur">Modérateur</option>
-            <option value="salarier">Salarier</option>
+      <div class="mb-3">
+        <label for="role" class="form-label">Rôle:</label>
+        <select id="role" name="role" class="form-select" required>
+          <option value="">-- Sélectionner un rôle --</option>
+          <option value="admin">Admin</option>
+          <option value="modérateur">Modérateur</option>
+          <option value="salarier">Salarier</option>
         </select>
-    </div>
+      </div>
 
-    <div class="mb-3">
-        <label class="form-label">Bio (facultatif):</label>
-        <textarea name="bio" class="form-control" rows="3"></textarea>
-    </div>
+      <div class="mb-3">
+        <label for="bio" class="form-label">Bio (facultatif):</label>
+        <textarea id="bio" name="bio" class="form-control" rows="3"></textarea>
+      </div>
 
-    <div class="mb-3">
-        <label class="form-label">Photo de profil (obligatoire):</label>
-        <input type="file" name="photo" accept="image/*" class="form-control" required>
-    </div>
+      <div class="mb-3">
+        <label for="photo" class="form-label">Photo de profil (obligatoire):</label>
+        <input type="file" id="photo" name="photo" accept="image/*" class="form-control" required>
+      </div>
 
-    <div class="d-grid">
+      <div class="d-grid text-center">
         <button type="submit" class="btn btn-info">Créer le compte</button>
+      </div>
+
     </div>
+  </div>
+</div>
+
 </form>
+
+<?php
+pieddepage();
+?>
