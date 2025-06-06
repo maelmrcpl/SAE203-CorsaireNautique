@@ -7,17 +7,13 @@ include "../functions.php"; // Assurez-vous que ce chemin est correct
 <html lang="fr">
 <?php
 // Paramètres de la page
-parametres("Annuaire Utilisateurs - Corsaire Nautique", "Page présentant la liste des utilisateurs et employés de Corsaire Nautique", "utilisateurs, employés, annuaire, Corsaire Nautique");
-isUserConnected();
+parametres("Annuaire Salariés - Corsaire Nautique", "Page présentant la liste des salaries et employés de Corsaire Nautique", "utilisateurs, employés, annuaire, Corsaire Nautique");
+if (!isUserConnected()) {
+	header("Location: ../connexion.php");
+	exit();
+}
 ?>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Annuaire Utilisateurs - Corsaire Nautique</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body class="bg-light"> <?php navigation("annuaire_clients"); // Assurez-vous que le nom de la navigation correspond à votre menu si 'annuaire_clients' est bien celui des salariés ?>
+<body> <?php navigation('annuaire_entreprise'); // Assurez-vous que le nom de la navigation correspond à votre menu si 'annuaire_clients' est bien celui des salariés ?>
 
 <div class="container my-5">
     <h1 class="mb-5 text-center text-primary">Notre Équipe et Utilisateurs</h1>

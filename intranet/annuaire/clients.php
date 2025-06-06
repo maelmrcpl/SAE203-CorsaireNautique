@@ -7,7 +7,10 @@ include "../functions.php";
 <html lang="fr">
 <?php
 parametres("Annuaire Clients - Corsaire Nautique", "Découvrez la liste complète de nos précieux clients chez Corsaire Nautique.", "clients, annuaire, Corsaire Nautique, fidélité");
-isUserConnected();
+if (!isUserConnected()) {
+	header("Location ../connexion.php";
+	exit();
+}
 ?>
 
 <body> <?php navigation("annuaire_clients"); // Barre de navigation ?>
