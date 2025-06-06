@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = 'Les mots de passe ne correspondent pas.';
     }
 
+
     $usersContent = file_exists($usersFile) ? file_get_contents($usersFile) : '[]';
     $users = json_decode($usersContent, true);
     if (!is_array($users)) $users = [];
@@ -101,19 +102,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'email' => $email,
             'motdepasse' => $hashedPassword,
             'role' => $role,
-            'photo' => $photoName,
+            'photo' => $photoName;
             'bio' => $bio
         ];
 
         $users[] = $newUser;
+
         file_put_contents($usersFile, json_encode($users, JSON_PRETTY_PRINT));
 
         header("Location: index.php?creation=success");
-        exit;
+
+        exit();
     }
 }
 ?>
 
+<<<<<<< HEAD
 <!-- Affichage des erreurs -->
 <?php if (!empty($errors)): ?>
     <div class="alert alert-danger">

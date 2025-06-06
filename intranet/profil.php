@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "script/functions.php";
+include "functions.php";
 $title = "Profil";
 $description = "Page de profil de l'uitlisateur sur l'intranet";
 $keywords = "profil intranet";
