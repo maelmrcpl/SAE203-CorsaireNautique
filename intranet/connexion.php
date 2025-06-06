@@ -20,7 +20,6 @@ if (isset($_GET['erreur'])) {
 
 <!DOCTYPE html>
 <html lang="fr">
-<<<<<<< HEAD
 <body class="d-flex flex-column min-vh-100">
 
 <!-- Contenu principal centré verticalement -->
@@ -69,5 +68,6 @@ if (isset($_GET['erreur'])) {
 <?php
 pieddepage();
 ?>
+
 </body>
 </html>
