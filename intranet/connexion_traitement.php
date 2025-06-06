@@ -13,7 +13,7 @@ if (empty($_POST['utilisateur']) || empty($_POST['motdepasse'])) {
 $user = htmlspecialchars($_POST['utilisateur']);
 $password = trim($_POST['motdepasse']);
 
-// ✅ Chemin vers le fichier JSON mis à jour
+//Chemin vers le fichier JSON mis à jour
 $jsonFile = 'data_corsaire/salaries.json';
 
 // Vérifier que le fichier existe
@@ -43,7 +43,7 @@ foreach ($utilisateurs as $utilisateur) {
             $_SESSION["nom"] = $utilisateur["nom"];
             $_SESSION["bio"] = isset($utilisateur["bio"]) ? $utilisateur["bio"] : null;
 
-            // ✅ Chemin vers la photo de profil (dans le dossier images_users)
+            //Chemin vers la photo de profil (dans le dossier images_users)
             $photoFile = isset($utilisateur["photo"]) ? $utilisateur["photo"] : null;
             $_SESSION["photo"] = $photoFile ? "images_users/" . $photoFile : "images_users/default.png";
 
