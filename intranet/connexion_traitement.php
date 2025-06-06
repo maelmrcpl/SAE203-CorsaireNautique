@@ -14,7 +14,7 @@ $user = htmlspecialchars($_POST['utilisateur']);
 $password = trim($_POST['motdepasse']);
 
 //Chemin vers le fichier JSON mis à jour
-$jsonFile = 'data_corsaire/salaries.json';
+$jsonFile = 'datas_corsaire/salaries.json';
 
 // Vérifier que le fichier existe
 if (!file_exists($jsonFile)) {
