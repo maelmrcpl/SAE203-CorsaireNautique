@@ -13,6 +13,8 @@ $catamaranPrices = [
 $nom = htmlspecialchars($_POST['nom'] ?? '');
 $prenom = htmlspecialchars($_POST['prenom'] ?? '');
 $email = htmlspecialchars($_POST['email'] ?? '');
+$telephone = htmlspecialchars($_POST['telephone'] ?? '');
+$adresse = htmlspecialchars($_POST['adresse'] ?? '');
 
 // Retrieve boat reservation data
 $bateau_date = htmlspecialchars($_POST['bateau_date'] ?? '');
@@ -130,13 +132,14 @@ if (!empty($catamaran_date) && !empty($catamaran_duree) && $catamaran_nb > 0) {
 
 
 // --- 4. Prepare Reservation Data for Storage ---
-$reservation_data = [
-    'nom' => $nom,
-    'prenom' => $prenom,
+$client = [
+    'nom' => $prenom + " " + $nom,
     'email' => $email,
-    'date_enregistrement' => date('Y-m-d H:i:s'),
-    'prix_total' => $prix, // Store the calculated price
+    'telephone' => $telephone,
+    'adresse' => $adresse
 ];
+
+$reservation_data = [];
 
 // Add boat reservation details if valid and selected
 if (!empty($bateau_date) && !empty($bateau_heure) && $total_boat_passengers > 0 && !$boat_booking_error) {
@@ -175,29 +178,121 @@ if (!empty($catamaran_date) && !empty($catamaran_duree) && $catamaran_nb > 0 && 
     ];
 }
 
-// --- 5. Save Reservation to JSON Files ---
+// --- 5. Save Reservation to JSON/CSV Files ---
 
-// Save to a general reservation file (optional, but good for all bookings in one place)
-$all_reservations_file = 'all_reservations.json';
-$all_existing_reservations = file_exists($all_reservations_file) ? json_decode(file_get_contents($all_reservations_file), true) : [];
-$all_existing_reservations[] = $reservation_data;
-file_put_contents($all_reservations_file, json_encode($all_existing_reservations, JSON_PRETTY_PRINT));
+// -- JSON -- //
+$clients_file = 'datas_corsaire/clients.json';
+$clients_data = [];
 
+// Load existing client data if the file exists
+if (file_exists($clients_file)) {
+    $clients_json = file_get_contents($clients_file);
+    $clients_data = json_decode($clients_json, true);
+    if ($clients_data === null) { // Handle JSON decoding errors
+        $clients_data = [];
+    }
+}
 
-// Save boat reservation specifically if no error and it was part of the request
+$client_exists = false;
+foreach ($clients_data as $key => $client) {
+    if (isset($client['email']) && $client['email'] === $email) {
+        // Update existing client's info if changed
+        $clients_data[$key]['nom'] = $nom;
+        $clients_data[$key]['prenom'] = $prenom;
+        $clients_data[$key]['telephone'] = $telephone;
+        $clients_data[$key]['adresse'] = $adresse;
+        $client_exists = true;
+        break;
+    }
+}
+
+// Add new client if not found
+if (!$client_exists) {
+    $clients_data[] = $client;
+}
+
+// Save updated client data back to JSON file
+file_put_contents($clients_file, json_encode($clients_data, JSON_PRETTY_PRINT));
+
+// -- CSV -- //
+$reservations_file = 'datas_corsaire/reservations.csv';
+
+// Prepare reservation entries for CSV
+$csv_entries = [];
+$format_csv_field = function($value) {
+    // Escape double quotes by doubling them, then enclose in double quotes
+    return '"' . str_replace('"', '""', $value) . '"';
+};
+
 if (isset($reservation_data['bateau'])) {
-    $donnees_existantes_boat_specific = file_exists($boat_reservations_file) ? json_decode(file_get_contents($boat_reservations_file), true) : [];
-    $donnees_existantes_boat_specific[] = $reservation_data; // Storing full data is fine, or just boat part
-    file_put_contents($boat_reservations_file, json_encode($donnees_existantes_boat_specific, JSON_PRETTY_PRINT));
+    $type_reservation = "Bateau";
+    $nb_personne = 0;
+    if (isset($reservation_data['bateau']['pass_aller_retour'])) {
+        $nb_personne += $reservation_data['bateau']['pass_aller_retour']['enfant'];
+        $nb_personne += $reservation_data['bateau']['pass_aller_retour']['ado'];
+        $nb_personne += $reservation_data['bateau']['pass_aller_retour']['adulte'];
+    }
+    if (isset($reservation_data['bateau']['pass_journee'])) {
+        $nb_personne += $reservation_data['bateau']['pass_journee']['enfant'];
+        $nb_personne += $reservation_data['bateau']['pass_journee']['ado'];
+        $nb_personne += $reservation_data['bateau']['pass_journee']['adulte'];
+    }
+    if (isset($reservation_data['bateau']['pass_famille'])) {
+        $nb_personne += $reservation_data['bateau']['pass_famille'] * 4; // Moyenne d'un pass famille
+    }
+    $date = $reservation_data['bateau']['date'] + " " + $reservation_data['bateau']['heure'];
+    $csv_entries[] = [
+        $format_csv_field($nom),
+        $format_csv_field($prenom),
+        $format_csv_field($date),
+        $format_csv_field($type_reservation),
+        $nb_personne,
+        $prix
+    ];
 }
 
-// Save catamaran reservation specifically if no error and it was part of the request
+if (isset($reservation_data['bouee_tractee'])) {
+    $type_reservation = "Bouee Tractee";
+    $nb_personne = $reservation_data['bouee_tractee']['personnes'];
+    $date = $reservation_data['bouee_tractee']['date'];
+    $csv_entries[] = [
+        $format_csv_field($nom),
+        $format_csv_field($prenom),
+        $format_csv_field($date),
+        $format_csv_field($type_reservation),
+        $nb_personne,
+        $prix
+    ];
+}
+
 if (isset($reservation_data['catamaran'])) {
-    $donnees_existantes_catamaran_specific = file_exists($catamaran_reservations_file) ? json_decode(file_get_contents($catamaran_reservations_file), true) : [];
-    $donnees_existantes_catamaran_specific[] = $reservation_data; // Storing full data is fine, or just catamaran part
-    file_put_contents($catamaran_reservations_file, json_encode($donnees_existantes_catamaran_specific, JSON_PRETTY_PRINT));
+    $type_reservation = "Catamaran";
+    $nb_personne = $reservation_data['catamaran']['nombre_catamarans']*2; // 2 pers/catamaran
+    $date = $reservation_data['catamaran']['date'];
+    $csv_entries[] = [
+        $format_csv_field($nom),
+        $format_csv_field($prenom),
+        $format_csv_field($date),
+        $format_csv_field($type_reservation),
+        $nb_personne,
+        $prix
+    ];
 }
 
+$csv_handle = fopen($reservations_file, 'a');
+if (!$csv_handle) {
+    error_log("Impossible d'ouvrir reservations.csv");
+} else {
+    // Si le fichier n'existe pas
+    if (filesize($reservations_file) == 0) {
+        fputcsv($csv_handle, ["nom", "prenom", "date reservation", "type reservation", "nb_personne", "total (€)"]);
+    }
+    // Ajout des réservations
+    foreach ($csv_entries as $entry) {
+        fwrite($csv_handle, implode(",", $entry) . "\n");
+    }
+    fclose($csv_handle);
+}
 ?>
 
 <!DOCTYPE html>
