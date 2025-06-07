@@ -363,6 +363,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <label class="required" for="nom">Nom : </label><input type="text" name="nom" id="nom" required>
         <label class="required" for="prenom">Prénom : </label><input type="text" name="prenom" id="prenom" required>
         <label class="required" for="email">Email : </label><input type="email" name="email" id="email" required>
+        <label for="telephone">Numéro de téléphone : </label><input type="tel" name="telephone" id="telephone">
+        <label for="adresse">Adresse : </label><input type="text" name="adresse" id="adresse">
     </div>
 
     <div class="section">
