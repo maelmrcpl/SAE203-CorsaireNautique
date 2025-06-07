@@ -132,7 +132,7 @@ if (!empty($catamaran_date) && !empty($catamaran_duree) && $catamaran_nb > 0) {
 
 
 // --- 4. Prepare Reservation Data for Storage ---
-$client = [
+$client_data = [
     'nom' => $prenom . " " . $nom,
     'email' => $email,
     'telephone' => $telephone,
@@ -188,7 +188,7 @@ $clients_data = [];
 if (file_exists($clients_file)) {
     $clients_json = file_get_contents($clients_file);
     $clients_data = json_decode($clients_json, true);
-    if ($clients_data === null) { // Handle JSON decoding errors
+    if ($clients_data === null) {
         $clients_data = [];
     }
 }
@@ -208,7 +208,7 @@ foreach ($clients_data as $key => $client) {
 
 // Add new client if not found
 if (!$client_exists) {
-    $clients_data[] = $client;
+    $clients_data[] = $client_data;
 }
 
 // Save updated client data back to JSON file
