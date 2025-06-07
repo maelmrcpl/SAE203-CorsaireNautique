@@ -113,7 +113,7 @@
         function visitSite() {
             $(event.target).addClass('btn-outline-danger').removeClass('btn-danger');
             setTimeout(() => {
-                window.location.href = 'http://172.18.203.208/wordpress/';
+                window.location.href = 'http://172.18.203.208/SAE203-CorsaireNautique/vitrine/';
             }, 200);
         }
         function contactRH() {

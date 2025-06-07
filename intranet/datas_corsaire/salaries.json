@@ -4,7 +4,7 @@
         "prenom": "David",
         "nom": "Gatel",
         "email": "d.gatel@gmail.com",
-        "motdepasse": "#",
+        "motdepasse": "$2y$10$.j8aTREtK0U.NWaizUoMwudBsHZPVxZtrOua4nJ8P\/b7BPRVG6Q9y",
         "role": "admin",
         "photo": "../image_users/dgatel.jpg",
         "bio": "Fondateur & Directeur Général"
@@ -14,7 +14,7 @@
         "prenom": "Alois",
         "nom": "Guitton",
         "email": "a.guitton@gmail.com",
-        "motdepasse": "#",
+        "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "admin",
         "photo": "../image_users/aguitton.jpg",
         "bio": "Directeur des opérations"
@@ -24,7 +24,7 @@
         "prenom": "François-Regis",
         "nom": "Menguy",
         "email": "fr.menguy@gmail.com",
-        "motdepasse": "#",
+        "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "admin",
         "photo": "../image_users/frmenguy.jpg",
         "bio": "Responsable développement & partenariats"
@@ -54,7 +54,7 @@
         "prenom": "Elouan",
         "nom": "Foucher",
         "email": "e.fouhcer@gmail.com",
-        "motdepasse": "#",
+        "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "admin",
         "photo": "../image_users/homme4.jpg",
         "bio": ""
@@ -64,7 +64,7 @@
         "prenom": "Samuel",
         "nom": "Laine",
         "email": "s.laine@gmail.com",
-        "motdepasse": "#",
+        "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "admin",
         "photo": "../image_users/homme5.jpg",
         "bio": ""
@@ -74,7 +74,7 @@
         "prenom": "Omar",
         "nom": "Siddique",
         "email": "o.siddique@gmail.com",
-        "motdepasse": "#",
+        "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "salarie",
         "photo": "../image_users/homme6.jpg",
         "bio": ""
@@ -84,7 +84,7 @@
         "prenom": "Yoann",
         "nom": "Provost",
         "email": "y.provost@gmail.com",
-        "motdepasse": "#",
+        "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "salarie",
         "photo": "../image_users/homme7.jpg",
         "bio": ""
@@ -94,7 +94,7 @@
         "prenom": "Julien",
         "nom": "Huard",
         "email": "j.huard@gmail.com",
-        "motdepasse": "#",
+        "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "salarie",
         "photo": "../image_users/homme8.jpg",
         "bio": ""
@@ -104,7 +104,7 @@
         "prenom": "Sylvie",
         "nom": "Aubigne",
         "email": "s.aubigne@gmail.com",
-        "motdepasse": "#",
+        "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "salarie",
         "photo": "../image_users/femme1.jpg",
         "bio": ""
@@ -114,7 +114,7 @@
         "prenom": "Matthieu",
         "nom": "Labrecque",
         "email": "m.labrecque@gmail.com",
-        "motdepasse": "#",
+        "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "salarie",
         "photo": "../image_users/homme9.jpg",
         "bio": ""
@@ -124,7 +124,7 @@
         "prenom": "Peverell",
         "nom": "Tisserand",
         "email": "p.tisserand@gmail.com",
-        "motdepasse": "#",
+        "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "salarie",
         "photo": "../image_users/homme10.jpg",
         "bio": ""
@@ -134,7 +134,7 @@
         "prenom": "Sargent",
         "nom": "Couet",
         "email": "s.couet@gmail.com",
-        "motdepasse": "#",
+        "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "salarie",
         "photo": "../image_users/homme11.jpg",
         "bio": ""
