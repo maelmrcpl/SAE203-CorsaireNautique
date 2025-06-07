@@ -10,7 +10,7 @@ h2, h3 { cursor: pointer; }
 .section { margin-bottom: 25px; padding: 15px; background: #e8f0f8; border-radius: 10px; border: 1px solid #cce0f0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
 .details { display: none; margin-top: 15px; padding-left: 10px; border-left: 3px solid #a0cbe8; }
 label { display: block; margin-bottom: 8px; font-weight: bold; }
-input[type="text"], input[type="email"], input[type="number"], input[type="date"], select {
+input[type="text"], input[type="email"], input[type="number"], input[type="date"], input[type="tel"], select {
     width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 15px;
