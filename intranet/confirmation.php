@@ -133,7 +133,7 @@ if (!empty($catamaran_date) && !empty($catamaran_duree) && $catamaran_nb > 0) {
 
 // --- 4. Prepare Reservation Data for Storage ---
 $client = [
-    'nom' => $prenom + " " + $nom,
+    'nom' => $prenom . " " . $nom,
     'email' => $email,
     'telephone' => $telephone,
     'adresse' => $adresse
@@ -240,7 +240,7 @@ if (isset($reservation_data['bateau'])) {
     if (isset($reservation_data['bateau']['pass_famille'])) {
         $nb_personne += $reservation_data['bateau']['pass_famille'] * 4; // Moyenne d'un pass famille
     }
-    $date = $reservation_data['bateau']['date'] + " " + $reservation_data['bateau']['heure'];
+    $date = $reservation_data['bateau']['date'] . " " . $reservation_data['bateau']['heure'];
     $csv_entries[] = [
         $format_csv_field($nom),
         $format_csv_field($prenom),
