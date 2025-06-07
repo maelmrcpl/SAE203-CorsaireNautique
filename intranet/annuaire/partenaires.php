@@ -1,21 +1,19 @@
 <?php
 session_start();
 include "../functions.php"; 
+if (!isUserConnected()) {
+        header('Location: ../connexion.php');
+        exit();
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <?php
 parametres("Annuaire Partenaires - Corsaire Nautique", "Découvrez nos précieux partenaires chez Corsaire Nautique, classés par secteurs d'activité.", "partenaires, annuaire, Corsaire Nautique, collaboration, entreprises");
-isUserConnected();
 ?>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Annuaire Partenaires - Corsaire Nautique</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-<body> <?php navigation("annuaire_partenaire"); ?>
+<body>
+<?php navigation("annuaire_partenaire"); ?>
 
 <div class="container mt-5 mb-5">
     <h1 class="mb-5 text-center text-primary">Nos Partenaires Privilégiés</h1>

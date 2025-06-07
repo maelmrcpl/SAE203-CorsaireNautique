@@ -1,23 +1,18 @@
 <?php
 session_start();
-include "../functions.php"; // Assurez-vous que ce chemin est correct
+include "../functions.php";
+if (!isUserConnected()) {
+        header('Location: ../connexion.php');
+        exit();
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <?php
 // Paramètres de la page
 parametres("Annuaire Utilisateurs - Corsaire Nautique", "Page présentant la liste des utilisateurs et employés de Corsaire Nautique", "utilisateurs, employés, annuaire, Corsaire Nautique");
-isUserConnected();
 ?>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Annuaire Utilisateurs - Corsaire Nautique</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body class="bg-light"> <?php navigation("annuaire_clients"); // Assurez-vous que le nom de la navigation correspond à votre menu si 'annuaire_clients' est bien celui des salariés ?>
+<body> <?php navigation("annuaire_entreprise"); ?>
 
 <div class="container my-5">
     <h1 class="mb-5 text-center text-primary">Notre Équipe et Utilisateurs</h1>
@@ -38,7 +33,6 @@ isUserConnected();
                 // En-tête de la carte avec la couleur primaire de Bootstrap
                 echo "<div class='card-header bg-primary text-white text-center py-3'>";
                 // Utilise le 'nom' ou un autre identifiant pertinent comme titre de la carte
-                // Assurez-vous que 'nom' ou 'prenom' + 'nom' existe dans votre JSON
                 echo "<h5 class='card-title mb-0'>" . htmlspecialchars($user['nom'] ?? $user['pseudo'] ?? 'Utilisateur Inconnu') . "</h5>";
                 echo "</div>"; 
 
@@ -55,7 +49,6 @@ isUserConnected();
                 echo "<ul class='list-group list-group-flush text-start'>";
                 foreach ($user as $cle => $valeur) {
                     // Ignore 'nom' (déjà utilisé comme titre) et 'photo' (déjà affichée)
-                    // Ajoutez d'autres clés à ignorer si elles sont gérées différemment (ex: 'id' si non pertinent)
                     if ($cle === 'nom' || $cle === 'photo') {
                         continue;
                     }
@@ -70,8 +63,6 @@ isUserConnected();
                 
                 // Pied de carte (optionnel, pour des actions supplémentaires)
                 echo "<div class='card-footer bg-light border-top text-center py-3 rounded-bottom'>";
-                // Vous pourriez ajouter des boutons d'action ici, ex: "Voir profil"
-                // echo "<a href='#' class='btn btn-outline-primary btn-sm'>Voir Profil</a>";
                 echo "</div>"; // Fin card-footer
                 
                 echo "</div>"; // Fin carte

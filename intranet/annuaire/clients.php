@@ -1,13 +1,17 @@
 <?php
 session_start();
 include "../functions.php";
+if (!isUserConnected()) {
+        header('Location: ../connexion.php');
+        exit();
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <?php
 parametres("Annuaire Clients - Corsaire Nautique", "Découvrez la liste complète de nos précieux clients chez Corsaire Nautique.", "clients, annuaire, Corsaire Nautique, fidélité");
-isUserConnected();
+
 ?>
 
 <body> <?php navigation("annuaire_clients"); // Barre de navigation ?>
