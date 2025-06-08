@@ -22,7 +22,7 @@ parametres("Annuaire Clients - Corsaire Nautique", "Découvrez la liste complèt
         Explorez la liste de nos clients fidèles qui nous font confiance pour leurs aventures nautiques.
     </p>
 
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+    <div class="row justify-content-center">
         <?php
         $json = file_get_contents('../datas_corsaire/clients.json');
         $personnes = json_decode($json, true);
@@ -30,8 +30,8 @@ parametres("Annuaire Clients - Corsaire Nautique", "Découvrez la liste complèt
         // Pas de filtrage, on affiche directement toutes les personnes si le décodage JSON est réussi
         if (is_array($personnes) && !empty($personnes)) {
             foreach ($personnes as $personne) {
-                echo "<div class='col'>";
-                echo "<div class='card h-100 shadow-sm border-0 rounded-3 overflow-hidden'>"; // Carte avec ombre, sans bordure, coins arrondis
+                echo "<div class='col-12 col-md-6 col-lg-4 mb-4'>";
+                echo "<div class='card h-100 shadow-sm border-0 rounded overflow-hidden'>"; // Carte avec ombre, sans bordure, coins arrondis
                 
                 // En-tête de la carte - nom du client comme titre
                 echo "<div class='card-header bg-primary text-white text-center py-3'>";
@@ -44,18 +44,18 @@ parametres("Annuaire Clients - Corsaire Nautique", "Découvrez la liste complèt
                 // Affichage de la photo si disponible (assumant que 'photo' existe et contient un chemin)
                 if (isset($personne['photo']) && !empty($personne['photo'])) {
                     echo "<div class='mb-3'>";
-                    echo "<img src='" . htmlspecialchars($personne['photo']) . "' alt='" . htmlspecialchars($personne['nom'] ?? 'Client') . "' class='img-fluid rounded-circle border border-3 border-light' style='width: 120px; height: 120px; object-fit: cover;'>";
+                    echo "<img src='" . htmlspecialchars($personne['photo']) . "' alt='" . htmlspecialchars($personne['nom'] ?? 'Client') . "' class='img-fluid rounded-circle border border-light' style='width: 120px; height: 120px; object-fit: cover; border-width: 3px !important;'>";
                     echo "</div>";
                 }
 
-                echo "<ul class='list-group list-group-flush text-start'>";
+                echo "<ul class='list-group list-group-flush text-left'>";
                 foreach ($personne as $cle => $valeur) {
                     // Ignore 'nom' (déjà utilisé comme titre) et 'photo' (déjà affichée)
                     if ($cle === 'nom' || $cle === 'photo') {
                         continue;
                     }
                     echo "<li class='list-group-item d-flex justify-content-between align-items-center px-3 py-2'>";
-                    echo "<span class='fw-bold text-dark'>" . htmlspecialchars(ucfirst($cle)) . ":</span>"; // Nom de la clé en gras
+                    echo "<span class='font-weight-bold text-dark'>" . htmlspecialchars(ucfirst($cle)) . ":</span>"; // Nom de la clé en gras
                     echo "<span>" . htmlspecialchars($valeur) . "</span>"; // Valeur
                     echo "</li>";
                 }
@@ -64,9 +64,7 @@ parametres("Annuaire Clients - Corsaire Nautique", "Découvrez la liste complèt
                 echo "</div>"; // Fin card-body
                 
                 // Pied de carte - peut être utilisé pour des actions
-                echo "<div class='card-footer bg-light border-top text-center py-3 rounded-bottom'>";
-                // Vous pourriez ajouter des boutons ici, par exemple pour "Voir Détails"
-                // echo "<a href='#' class='btn btn-outline-primary btn-sm'>Voir Détails</a>";
+                echo "<div class='card-footer bg-light border-top text-center py-3'>";
                 echo "</div>"; // Fin card-footer
                 
                 echo "</div>"; // Fin carte
@@ -82,7 +80,8 @@ parametres("Annuaire Clients - Corsaire Nautique", "Découvrez la liste complèt
 
 <?php pieddepage(); // Pied de page ?>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
