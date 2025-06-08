@@ -59,7 +59,7 @@ function navigation($actual) {
             if (isset($_SESSION["utilisateur"])) { 
                 if ($_SESSION['role'] == 'admin') { 
             ?>
-                    <li class="nav-item <?php echo ($actual == 'gestion_fichier') ? 'active' : '';?>"><a class="nav-link" href="/SAE203-CorsaireNautique/intranet/gestion-fichier.php">Gestion des fichiers</a></li>
+                    <li class="nav-item <?php echo ($actual == 'gestion_fichier') ? 'active' : '';?>"><a class="nav-link" href="/SAE203-CorsaireNautique/intranet/gestion_fichiers.php">Gestion des fichiers</a></li>
                     <li class="nav-item <?php echo ($actual == 'inscrire') ? 'active' : '';?>"><a class="nav-link" href="/SAE203-CorsaireNautique/intranet/inscription.php">Inscrire</a></li>
 
             <?php 

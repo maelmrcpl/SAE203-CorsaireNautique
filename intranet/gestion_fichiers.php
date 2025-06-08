@@ -1,19 +1,17 @@
-<?
+<?php
 	session_start();
-	if(isset($_SESSION['utilisateur'])) {
+	include 'functions.php';
+	if(!isUserConnected()) {
 		header("Location: connexion.php");
 		exit();
 	}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Affichage JSON avec édition admin</title>
+<?php parametres("Gestions des fichiers", "Page de gestion des fichiers pour les admins", " "); ?>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 20px;
     }
     table {
       border-collapse: collapse;
@@ -37,9 +35,9 @@
       box-sizing: border-box;
     }
   </style>
-</head>
-<body>
 
+<body>
+  <?php navigation('gestion_fichiers'); ?>
   <h1>Choisissez un fichier à afficher</h1>
 
   <label for="json-select">Fichier JSON :</label>
@@ -160,6 +158,6 @@
       // Pour sauvegarder dans le fichier JSON, il faut un script backend (PHP, Node, etc.)
     }
   </script>
-
+  <?php pieddepage(); ?>
 </body>
 </html>
