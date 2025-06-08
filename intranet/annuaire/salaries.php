@@ -49,7 +49,7 @@ parametres("Annuaire Utilisateurs - Corsaire Nautique", "Page présentant la lis
                 echo "<ul class='list-group list-group-flush text-start'>";
                 foreach ($user as $cle => $valeur) {
                     // Ignore 'nom' (déjà utilisé comme titre) et 'photo' (déjà affichée)
-                    if ($cle === 'nom' || $cle === 'photo') {
+                    if ($cle === 'nom' || $cle === 'photo' || $cle === 'motdepasse') {
                         continue;
                     }
                     echo "<li class='list-group-item d-flex justify-content-between align-items-center px-3 py-2'>";
