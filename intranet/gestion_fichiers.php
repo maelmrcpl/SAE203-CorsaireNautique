@@ -9,7 +9,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Affichage JSON avec édition admin</title>
+  <title>Affichage JSON avec �edition admin</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -44,7 +44,7 @@
 
   <label for="json-select">Fichier JSON :</label>
   <select id="json-select">
-    <option value="">-- Sélectionnez un fichier --</option>
+    <option value="">-- Selectionnez un fichier --</option>
     <option value="datas_corsaire/clients.json">Clients</option>
     <option value="datas_corsaire/partenaires.json">Partenaires</option>
     <option value="datas_corsaire/salaries.json">Salariés</option>
@@ -53,7 +53,7 @@
   <div id="table-container"></div>
 
   <script>
-    let currentData = []; // pour stocker les données du fichier
+    let currentData = []; // pour stocker les donnees du fichier
 
     function loadJSON(file) {
       fetch(file)
