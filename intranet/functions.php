@@ -95,9 +95,8 @@ function pieddepage() {
     </footer>
 <?php
 }
-?>
 
-<?php
+
 function isUserConnected() {
     if (isset($_SESSION["utilisateur"])) {
         return true;
