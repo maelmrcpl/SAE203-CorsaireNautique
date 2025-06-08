@@ -262,5 +262,17 @@
         "telephone": "0654123456",
         "email": "marcine.bailly@example.com",
         "adresse": "38 avenue Pasteur, 36000 Ch\u00e2teauroux"
+    },
+    {
+        "nom": "Jean Beaujour",
+        "email": "jean.beau@jour.co",
+        "telephone": "01 23 45 67 89",
+        "adresse": "98 rue du jour beau, 54000 Nancy"
+    },
+    {
+        "nom": "Jean Beaujour",
+        "email": "jean.beau@jour.com",
+        "telephone": "01 23 45 67 89",
+        "adresse": "98 rue du jour beau, 54000 Nancy"
     }
 ]
