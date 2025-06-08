@@ -51,7 +51,7 @@ parametres("Annuaire Clients - Corsaire Nautique", "Découvrez la liste complèt
                 echo "<ul class='list-group list-group-flush text-left'>";
                 foreach ($personne as $cle => $valeur) {
                     // Ignore 'nom' (déjà utilisé comme titre) et 'photo' (déjà affichée)
-                    if ($cle === 'nom' || $cle === 'photo' || $cle === 'motdepasse') {
+                    if ($cle === 'nom' || $cle === 'photo') {
                         continue;
 		    }
 
