@@ -51,9 +51,10 @@ parametres("Annuaire Clients - Corsaire Nautique", "Découvrez la liste complèt
                 echo "<ul class='list-group list-group-flush text-left'>";
                 foreach ($personne as $cle => $valeur) {
                     // Ignore 'nom' (déjà utilisé comme titre) et 'photo' (déjà affichée)
-                    if ($cle === 'nom' || $cle === 'photo') {
+                    if ($cle === 'nom' || $cle === 'photo' || $cle === 'motdepasse') {
                         continue;
-                    }
+		    }
+
                     echo "<li class='list-group-item d-flex justify-content-between align-items-center px-3 py-2'>";
                     echo "<span class='font-weight-bold text-dark'>" . htmlspecialchars(ucfirst($cle)) . ":</span>"; // Nom de la clé en gras
                     echo "<span>" . htmlspecialchars($valeur) . "</span>"; // Valeur
