@@ -5,7 +5,7 @@ $title = "Profil";
 $description = "Page de profil de l'uitlisateur sur l'intranet";
 $keywords = "profil intranet";
 parametres($title, $description, $keywords);
-$actual = "Profil";
+$actual = "profil";
 navigation($actual);
 
 if (!isset($_SESSION['utilisateur'])) {

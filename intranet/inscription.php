@@ -5,7 +5,7 @@ $title = "Inscription";
 $description = "Page d'inscription intranet";
 $keywords = "inscription intranet";
 parametres($title, $description, $keywords);
-$actual = "Inscription";
+$actual = "inscrire";
 navigation($actual);
 
 if (!isUserAdmin()) {

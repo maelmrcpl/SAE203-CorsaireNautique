@@ -1,5 +1,10 @@
 <?php
 session_start();
+include "functions.php";
+if (!isUserConnected()) {
+        header('Location: connexion.php');
+        exit();
+}
 // $_SESSION['role'] = 'admin';
 $role = $_SESSION['role'] ?? 'user'; // doit être 'admin' pour pouvoir modifier
 
@@ -34,14 +39,11 @@ if ($fichier && file_exists($fichier)) {
 
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Éditeur JSON</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
-</head>
-<body class="p-4">
+<?php parametres("Gestions des fichiers", "Page de gestion des fichiers pour les admins", " "); ?>
+<body>
+<?php navigation("gestion_fichier"); ?>
     <div class="container">
-        <h1 class="mb-4">Éditeur de données JSON</h1>
+        <h1 class="mt-4 mb-4">Éditeur de données JSON</h1>
 
         <div class="mb-3">
             <label for="json-select" class="form-label">Sélectionnez un fichier :</label>
@@ -125,5 +127,6 @@ if ($fichier && file_exists($fichier)) {
             document.getElementById('json_data_field').value = JSON.stringify(Object.values(data));
         }
     </script>
+<?php pieddepage(); ?>
 </body>
 </html>
