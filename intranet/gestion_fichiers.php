@@ -1,163 +1,131 @@
 <?php
-	session_start();
-	include 'functions.php';
-	if(!isUserConnected()) {
-		header("Location: connexion.php");
-		exit();
-	}
+session_start();
+// $_SESSION['role'] = 'admin';
+$role = $_SESSION['role'] ?? 'user'; // doit être 'admin' pour pouvoir modifier
+
+$fichier = $_GET['file'] ?? null;
+$jsonData = [];
+$erreur = '';
+$success = '';
+
+// Sauvegarde des données modifiées (admin uniquement)
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['json_data']) && $role === 'admin') {
+    $fichier = $_POST['file'];
+    $jsonString = stripslashes($_POST['json_data']);
+
+    $decoded = json_decode($jsonString, true);
+    if (json_last_error() === JSON_ERROR_NONE) {
+        file_put_contents($fichier, json_encode($decoded, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+        $success = "Fichier mis à jour avec succès.";
+    } else {
+        $erreur = "Le contenu JSON est invalide.";
+    }
+}
+
+// Lecture du fichier JSON
+if ($fichier && file_exists($fichier)) {
+    $contenu = file_get_contents($fichier);
+    $jsonData = json_decode($contenu, true);
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        $erreur = "Erreur de lecture du fichier JSON.";
+    }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
-<?php parametres("Gestions des fichiers", "Page de gestion des fichiers pour les admins", " "); ?>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    table {
-      border-collapse: collapse;
-      margin-top: 20px;
-      width: 100%;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: left;
-    }
-    select, button {
-      padding: 10px;
-      font-size: 16px;
-    }
-    .actions {
-      white-space: nowrap;
-    }
-    input[type="text"] {
-      width: 100%;
-      box-sizing: border-box;
-    }
-  </style>
+<head>
+    <meta charset="UTF-8">
+    <title>Éditeur JSON</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+</head>
+<body class="p-4">
+    <?php navigation("gestion_fichiers"); ?>
+    <div class="container">
+        <h1 class="mb-4">Éditeur de données JSON</h1>
 
-<body>
-  <?php navigation('gestion_fichiers'); ?>
-  <h1>Choisissez un fichier à afficher</h1>
+        <div class="mb-3">
+            <label for="json-select" class="form-label">Sélectionnez un fichier :</label>
+            <select id="json-select" class="form-select">
+                <option value="">-- Choisir un fichier --</option>
+                <option value="?file=datas_corsaire/clients.json" <?= ($fichier === 'datas_corsaire/clients.json') ? 'selected' : '' ?>>Clients</option>
+                <option value="?file=datas_corsaire/partenaires.json" <?= ($fichier === 'datas_corsaire/partenaires.json') ? 'selected' : '' ?>>Partenaires</option>
+                <option value="?file=datas_corsaire/salaries.json" <?= ($fichier === 'datas_corsaire/salaries.json') ? 'selected' : '' ?>>Salariés</option>
+            </select>
+        </div>
 
-  <label for="json-select">Fichier JSON :</label>
-  <select id="json-select">
-    <option value="">-- Sélectionnez un fichier --</option>
-    <option value="datas_corsaire/clients.json">Clients</option>
-    <option value="datas_corsaire/partenaires.json">Partenaires</option>
-    <option value="datas_corsaire/salaries.json">Salariés</option>
-  </select>
+        <?php if ($erreur): ?>
+            <div class="alert alert-danger"><?= htmlspecialchars($erreur) ?></div>
+        <?php elseif ($success): ?>
+            <div class="alert alert-success"><?= htmlspecialchars($success) ?></div>
+        <?php endif; ?>
 
-  <div id="table-container"></div>
+        <?php if (!empty($jsonData) && is_array($jsonData)): ?>
+            <form method="post">
+                <input type="hidden" name="file" value="<?= htmlspecialchars($fichier) ?>">
+                <div class="table-responsive mb-3">
+                    <table class="table table-bordered table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <?php foreach (array_keys($jsonData[0]) as $col): ?>
+                                    <th><?= htmlspecialchars(ucfirst($col)) ?></th>
+                                <?php endforeach; ?>
+                                <?php if ($role === 'admin'): ?>
+                                    <th>Actions</th>
+                                <?php endif; ?>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($jsonData as $index => $ligne): ?>
+                                <tr>
+                                    <?php foreach ($ligne as $key => $val): ?>
+                                        <td>
+                                            <?php if ($role === 'admin'): ?>
+                                                <input type="text" name="data[<?= $index ?>][<?= htmlspecialchars($key) ?>]" value="<?= htmlspecialchars($val) ?>" class="form-control form-control-sm">
+                                            <?php else: ?>
+                                                <?= htmlspecialchars($val) ?>
+                                            <?php endif; ?>
+                                        </td>
+                                    <?php endforeach; ?>
+                                    <?php if ($role === 'admin'): ?>
+                                        <td><!-- Placeholder pour supprimer une ligne plus tard --></td>
+                                    <?php endif; ?>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                <?php if ($role === 'admin'): ?>
+                    <input type="hidden" name="json_data" id="json_data_field">
+                    <button type="submit" class="btn btn-primary" onclick="prepareJson()">Sauvegarder</button>
+                <?php endif; ?>
+            </form>
+        <?php elseif ($fichier): ?>
+            <div class="alert alert-warning">Aucune donnée à afficher ou format JSON invalide.</div>
+        <?php endif; ?>
+    </div>
 
-  <script>
-    let currentData = []; // pour stocker les données du fichier
-
-    function loadJSON(file) {
-      fetch(file)
-        .then(response => {
-          if (!response.ok) throw new Error('Erreur de chargement');
-          return response.json();
-        })
-        .then(data => {
-          currentData = data;
-          createTable(data);
-        })
-        .catch(error => {
-          console.error('Erreur :', error);
-          document.getElementById('table-container').innerHTML =
-            '<p style="color:red;">Impossible de charger le fichier.</p>';
-        });
-    }
-
-    function createTable(data) {
-      const container = document.getElementById('table-container');
-      container.innerHTML = '';
-
-      if (!Array.isArray(data) || data.length === 0) {
-        container.innerHTML = '<p>Aucune donnée à afficher.</p>';
-        return;
-      }
-
-      const table = document.createElement('table');
-      const thead = document.createElement('thead');
-      const tbody = document.createElement('tbody');
-
-      const headers = Object.keys(data[0]);
-      const headRow = document.createElement('tr');
-      headers.forEach(header => {
-        const th = document.createElement('th');
-        th.textContent = header;
-        headRow.appendChild(th);
-      });
-      if (utilisateur === "admin") {
-        headRow.appendChild(document.createElement('th')).textContent = 'Actions';
-      }
-      thead.appendChild(headRow);
-
-      data.forEach((item, rowIndex) => {
-        const row = document.createElement('tr');
-        headers.forEach(header => {
-          const td = document.createElement('td');
-          td.textContent = item[header];
-          row.appendChild(td);
+    <script>
+        document.getElementById('json-select').addEventListener('change', function () {
+            if (this.value) window.location.href = this.value;
         });
 
-        if (utilisateur === "admin") {
-          const actionTd = document.createElement('td');
-          actionTd.classList.add('actions');
-          const editBtn = document.createElement('button');
-          editBtn.textContent = 'Modifier';
-          editBtn.onclick = () => enableEdit(row, headers, rowIndex);
-          actionTd.appendChild(editBtn);
-          row.appendChild(actionTd);
+        function prepareJson() {
+            const inputs = document.querySelectorAll('input[name^="data"]');
+            const data = {};
+
+            inputs.forEach(input => {
+                const match = input.name.match(/data\[(\d+)\]\[(.+?)\]/);
+                if (match) {
+                    const [_, i, key] = match;
+                    if (!data[i]) data[i] = {};
+                    data[i][key] = input.value;
+                }
+            });
+
+            document.getElementById('json_data_field').value = JSON.stringify(Object.values(data));
         }
-
-        tbody.appendChild(row);
-      });
-
-      table.appendChild(thead);
-      table.appendChild(tbody);
-      container.appendChild(table);
-    }
-
-    function enableEdit(row, headers, index) {
-      const cells = row.querySelectorAll('td');
-      headers.forEach((header, i) => {
-        const cell = cells[i];
-        const input = document.createElement('input');
-        input.type = 'text';
-        input.value = cell.textContent;
-        cell.innerHTML = '';
-        cell.appendChild(input);
-      });
-
-      const actionsCell = cells[cells.length - 1];
-      actionsCell.innerHTML = '';
-
-      const saveBtn = document.createElement('button');
-      saveBtn.textContent = 'Sauvegarder';
-      saveBtn.onclick = () => saveEdit(row, headers, index);
-      actionsCell.appendChild(saveBtn);
-    }
-
-    function saveEdit(row, headers, index) {
-      const inputs = row.querySelectorAll('input');
-      const newData = {};
-      inputs.forEach((input, i) => {
-        newData[headers[i]] = input.value;
-      });
-
-      // Met à jour currentData
-      currentData[index] = newData;
-
-      // Recharge le tableau avec les données mises à jour
-      createTable(currentData);
-
-      // 🔴 À ce stade, les modifications sont **dans le tableau seulement**
-      // Pour sauvegarder dans le fichier JSON, il faut un script backend (PHP, Node, etc.)
-    }
-  </script>
-  <?php pieddepage(); ?>
+        <?php pieddepage(); // Pied de page ?>
+    </script>
 </body>
 </html>
