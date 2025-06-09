@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "functions.php";
 // $_SESSION['role'] = 'admin';
 $role = $_SESSION['role'] ?? 'user'; // doit être 'admin' pour pouvoir modifier
 
@@ -35,9 +36,7 @@ if ($fichier && file_exists($fichier)) {
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Éditeur JSON</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <?php parametres("Gestions des fichiers", "Page de gestion des fichiers pour les admins", " "); ?>
 </head>
 <body class="p-4">
     <?php navigation("gestion_fichiers"); ?>
