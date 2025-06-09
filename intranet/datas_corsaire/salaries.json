@@ -6,7 +6,7 @@
         "email": "d.gatel@gmail.com",
         "motdepasse": "$2y$10$.j8aTREtK0U.NWaizUoMwudBsHZPVxZtrOua4nJ8P\/b7BPRVG6Q9y",
         "role": "admin",
-        "photo": "../image_users/dgatel.jpg",
+        "photo": "..\/image_users\/dgatel.jpg",
         "bio": "Fondateur & Directeur Général"
     },
     {
@@ -16,7 +16,7 @@
         "email": "a.guitton@gmail.com",
         "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "admin",
-        "photo": "../image_users/aguitton.jpg",
+        "photo": "..\/image_users\/aguitton.jpg",
         "bio": "Directeur des opérations"
     },
     {
@@ -26,28 +26,28 @@
         "email": "fr.menguy@gmail.com",
         "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "admin",
-        "photo": "../image_users/frmenguy.jpg",
+        "photo": "..\/image_users\/frmenguy.jpg",
         "bio": "Responsable développement & partenariats"
     },
     {
         "utilisateur": "marcepoil",
-        "prenom": "Ma\u00ebl",
+        "prenom": "Maël",
         "nom": "Marcepoil",
         "motdepasse": "$2y$10$93AuP6she7CCiyb6v7v1R.WRRh7KSI75s\/Gjni5J63NTnI3snNtuS",
         "email": "user@user.com",
         "role": "user",
         "photo": "Unknown.jpg",
-        "bio": "D\u00e9veloppeur passionn\u00e9 par le web et les nouvelles technologies."
+        "bio": "Développeur passionné par le web et les nouvelles technologies."
     },
     {
         "utilisateur": "aloyermalhere",
         "prenom": "Alexis",
-        "nom": "Loyer-Malh\u00e8re",
+        "nom": "Loyer-Malhère",
         "email": "user@user.com",
         "motdepasse": "bonjour",
         "role": "salarie",
-        "photo": "../image_users/homme2.jpg",
-        "bio": "D\u00e9veloppeur passionn\u00e9 par le web et les nouvelles technologies."
+        "photo": "..\/image_users\/homme2.jpg",
+        "bio": "Développeur passionné par le web et les nouvelles technologies."
     },
     {
         "utilisateur": "elfoucher",
@@ -56,7 +56,7 @@
         "email": "e.fouhcer@gmail.com",
         "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "admin",
-        "photo": "../image_users/homme4.jpg",
+        "photo": "..\/image_users\/homme4.jpg",
         "bio": ""
     },
     {
@@ -66,7 +66,7 @@
         "email": "s.laine@gmail.com",
         "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "admin",
-        "photo": "../image_users/homme5.jpg",
+        "photo": "..\/image_users\/homme5.jpg",
         "bio": ""
     },
     {
@@ -76,7 +76,7 @@
         "email": "o.siddique@gmail.com",
         "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "salarie",
-        "photo": "../image_users/homme6.jpg",
+        "photo": "..\/image_users\/homme6.jpg",
         "bio": ""
     },
     {
@@ -86,7 +86,7 @@
         "email": "y.provost@gmail.com",
         "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "salarie",
-        "photo": "../image_users/homme7.jpg",
+        "photo": "..\/image_users\/homme7.jpg",
         "bio": ""
     },
     {
@@ -96,7 +96,7 @@
         "email": "j.huard@gmail.com",
         "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "salarie",
-        "photo": "../image_users/homme8.jpg",
+        "photo": "..\/image_users\/homme8.jpg",
         "bio": ""
     },
     {
@@ -106,7 +106,7 @@
         "email": "s.aubigne@gmail.com",
         "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "salarie",
-        "photo": "../image_users/femme1.jpg",
+        "photo": "..\/image_users\/femme1.jpg",
         "bio": ""
     },
     {
@@ -116,7 +116,7 @@
         "email": "m.labrecque@gmail.com",
         "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "salarie",
-        "photo": "../image_users/homme9.jpg",
+        "photo": "..\/image_users\/homme9.jpg",
         "bio": ""
     },
     {
@@ -126,17 +126,17 @@
         "email": "p.tisserand@gmail.com",
         "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "salarie",
-        "photo": "../image_users/homme10.jpg",
+        "photo": "..\/image_users\/homme10.jpg",
         "bio": ""
     },
     {
         "utilisateur": "scouet",
         "prenom": "Sargent",
-        "nom": "Couet",
+        "nom": "Coucou",
         "email": "s.couet@gmail.com",
         "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "salarie",
-        "photo": "../image_users/homme11.jpg",
+        "photo": "..\/image_users\/homme11.jpg",
         "bio": ""
     },
     {
@@ -146,7 +146,7 @@
         "email": "d.fongemie@gmail.com",
         "motdepasse": "#",
         "role": "salarie",
-        "photo": "../image_users/homme12.jpg",
+        "photo": "..\/image_users\/homme12.jpg",
         "bio": ""
     },
     {
@@ -156,7 +156,7 @@
         "email": "f.douffet@gmail.com",
         "motdepasse": "#",
         "role": "salarie",
-        "photo": "../image_users/homme13.jpg",
+        "photo": "..\/image_users\/homme13.jpg",
         "bio": ""
     },
     {
@@ -166,7 +166,7 @@
         "email": "b.sorel@gmail.com",
         "motdepasse": "#",
         "role": "salarie",
-        "photo": "../image_users/homme14.jpg",
+        "photo": "..\/image_users\/homme14.jpg",
         "bio": ""
     },
     {
@@ -176,7 +176,7 @@
         "email": "h.bois@gmail.com",
         "motdepasse": "#",
         "role": "salarie",
-        "photo": "../image_users/femme2.jpg",
+        "photo": "..\/image_users\/femme2.jpg",
         "bio": ""
     },
     {
@@ -186,7 +186,7 @@
         "email": "l.salois@gmail.com",
         "motdepasse": "#",
         "role": "salarie",
-        "photo": "../image_users/femme3.jpg",
+        "photo": "..\/image_users\/femme3.jpg",
         "bio": ""
     },
     {
@@ -196,7 +196,7 @@
         "email": "a.tardif@gmail.com",
         "motdepasse": "#",
         "role": "salarie",
-        "photo": "../image_users/homme15.jpg",
+        "photo": "..\/image_users\/homme15.jpg",
         "bio": ""
     },
     {
@@ -206,7 +206,7 @@
         "email": "a.anglais@gmail.com",
         "motdepasse": "#",
         "role": "salarie",
-        "photo": "../image_users/femme4.jpg",
+        "photo": "..\/image_users\/femme4.jpg",
         "bio": ""
     },
     {
@@ -216,7 +216,7 @@
         "email": "o.charbonneau@gmail.com",
         "motdepasse": "#",
         "role": "salarie",
-        "photo": "../image_users/femme5.jpg",
+        "photo": "..\/image_users\/femme5.jpg",
         "bio": ""
     },
     {
@@ -226,7 +226,7 @@
         "email": "b.bergeron@gmail.com",
         "motdepasse": "#",
         "role": "salarie",
-        "photo": "../image_users/homme16.jpg",
+        "photo": "..\/image_users\/homme16.jpg",
         "bio": ""
     }
 ]

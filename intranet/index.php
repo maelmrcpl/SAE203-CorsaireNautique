@@ -1,7 +1,10 @@
 <?php
-	session_start();
-
-	include 'functions.php';
+session_start();
+include 'functions.php';
+if (!isUserConnected()) {
+	header("Location: connexion.php");
+	exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -124,12 +127,13 @@
         }
         function createTicket() {
             setTimeout(() => {
-                window.location.href = '#';
+		const numeroTicket = Math.floor(100000 + Math.random() * 900000);
+                window.location.href = `mailto:support@contact.corsaire-nautique.com?subject=Ticket%20n%C2%B0${numeroTicket}%20-%20Demande%20de%20support&body=Bonjour,%0D%0A%0D%0AJe rencontre un problème et souhaite ouvrir un ticket de support.%0D%0A%0D%0AMerci de votre aide.%0D%0A%0D%0ACordialement`;
             }, 200);
         }
         function shareIdea() {
             setTimeout(() => {
-                window.location.href = '#';
+                window.location.href = 'mailto:boiteaidees@contact.corsaire-nautique.com?subject=Suggestion%20-%20Bo%C3%AEte%20%C3%A0%20id%C3%A9es&body=Bonjour,%0D%0A%0D%0AVoici une idée que je souhaite partager :%0D%0A%0D%0A...%0D%0A%0D%0ACordialement';
             }, 200);
         }
     </script>

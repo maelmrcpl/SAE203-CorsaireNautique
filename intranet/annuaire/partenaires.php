@@ -13,7 +13,7 @@ if (!isUserConnected()) {
 parametres("Annuaire Partenaires - Corsaire Nautique", "Découvrez nos précieux partenaires chez Corsaire Nautique, classés par secteurs d'activité.", "partenaires, annuaire, Corsaire Nautique, collaboration, entreprises");
 ?>
 <body>
-<?php navigation("annuaire_partenaire"); ?>
+<?php navigation("annuaire_partenaires"); ?>
 
 <div class="container mt-5 mb-5">
     <h1 class="mb-5 text-center text-primary">Nos Partenaires Privilégiés</h1>
