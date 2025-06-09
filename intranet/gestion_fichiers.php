@@ -1,6 +1,5 @@
 <?php
 session_start();
-include "functions.php";
 // $_SESSION['role'] = 'admin';
 $role = $_SESSION['role'] ?? 'user'; // doit être 'admin' pour pouvoir modifier
 
@@ -36,10 +35,11 @@ if ($fichier && file_exists($fichier)) {
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <?php parametres("Gestions des fichiers", "Page de gestion des fichiers pour les admins", " "); ?>
+    <meta charset="UTF-8">
+    <title>Éditeur JSON</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 </head>
 <body class="p-4">
-    <?php navigation("gestion_fichiers"); ?>
     <div class="container">
         <h1 class="mb-4">Éditeur de données JSON</h1>
 
@@ -124,7 +124,6 @@ if ($fichier && file_exists($fichier)) {
 
             document.getElementById('json_data_field').value = JSON.stringify(Object.values(data));
         }
-        <?php pieddepage(); // Pied de page ?>
     </script>
 </body>
 </html>
