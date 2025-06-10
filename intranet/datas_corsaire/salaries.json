@@ -7,7 +7,7 @@
         "motdepasse": "$2y$10$.j8aTREtK0U.NWaizUoMwudBsHZPVxZtrOua4nJ8P\/b7BPRVG6Q9y",
         "role": "admin",
         "photo": "..\/image_users\/dgatel.jpg",
-        "bio": "Fondateur & Directeur Général"
+        "bio": "Fondateur & Directeur G\u00e9n\u00e9ral"
     },
     {
         "utilisateur": "aguitton",
@@ -17,37 +17,37 @@
         "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "admin",
         "photo": "..\/image_users\/aguitton.jpg",
-        "bio": "Directeur des opérations"
+        "bio": "Directeur des op\u00e9rations"
     },
     {
         "utilisateur": "frmenguy",
-        "prenom": "François-Regis",
+        "prenom": "Fran\u00e7ois-Regis",
         "nom": "Menguy",
         "email": "fr.menguy@gmail.com",
         "motdepasse": "$2y$10$s4yc42Szy.5vQgPsF3Snwe.l1M.0hgs36f5UmhIoHcNCTHwBBy\/t2",
         "role": "admin",
         "photo": "..\/image_users\/frmenguy.jpg",
-        "bio": "Responsable développement & partenariats"
+        "bio": "Responsable d\u00e9veloppement & partenariats"
     },
     {
         "utilisateur": "marcepoil",
-        "prenom": "Maël",
+        "prenom": "Ma\u00ebl",
         "nom": "Marcepoil",
         "motdepasse": "$2y$10$93AuP6she7CCiyb6v7v1R.WRRh7KSI75s\/Gjni5J63NTnI3snNtuS",
         "email": "user@user.com",
         "role": "user",
         "photo": "Unknown.jpg",
-        "bio": "Développeur passionné par le web et les nouvelles technologies."
+        "bio": "D\u00e9veloppeur passionn\u00e9 par le web et les nouvelles technologies."
     },
     {
         "utilisateur": "aloyermalhere",
         "prenom": "Alexis",
-        "nom": "Loyer-Malhère",
+        "nom": "Loyer-Malh\u00e8re",
         "email": "user@user.com",
         "motdepasse": "bonjour",
         "role": "salarie",
         "photo": "..\/image_users\/homme2.jpg",
-        "bio": "Développeur passionné par le web et les nouvelles technologies."
+        "bio": "D\u00e9veloppeur passionn\u00e9 par le web et les nouvelles technologies."
     },
     {
         "utilisateur": "elfoucher",
@@ -228,5 +228,15 @@
         "role": "salarie",
         "photo": "..\/image_users\/homme16.jpg",
         "bio": ""
+    },
+    {
+        "utilisateur": "LeM",
+        "prenom": "Mael",
+        "nom": "Marcepoil",
+        "email": "marcel@poil.com",
+        "motdepasse": "$2y$10$BuoDPTI3eLbbJ3yEXEQNBOtoHhwtAdxzG5KelczQK4cvsp7Klz7\/i",
+        "role": "salarier",
+        "photo": "../image_users\/LeM.png",
+        "bio": "Rien"
     }
 ]

@@ -3,7 +3,7 @@
         "nom": "Alice Dupont",
         "telephone": "0612345679",
         "email": "alice.dupont@example.com",
-        "adresse": "12 rue des Lilas, 75012 Paris"
+        "adresse": "12 rue des Lilas, 75012 "
     },
     {
         "nom": "Bruno Martin",
@@ -27,7 +27,7 @@
         "nom": "Emma Morel",
         "telephone": "0656789012",
         "email": "emma.morel@example.com",
-        "adresse": "33 rue des \u00c9coles, 33000 Bordeaux"
+        "adresse": "33 rue des Écoles, 33000 Bordeaux"
     },
     {
         "nom": "Fabien Garcia",
@@ -36,10 +36,10 @@
         "adresse": "2 rue du Stade, 80000 Amiens"
     },
     {
-        "nom": "Ga\u00eblle Laurent",
+        "nom": "Gaëlle Laurent",
         "telephone": "0678901234",
         "email": "gaelle.laurent@example.com",
-        "adresse": "9 all\u00e9e des Acacias, 67000 Strasbourg"
+        "adresse": "9 allée des Acacias, 67000 Strasbourg"
     },
     {
         "nom": "Hugo Masson",
@@ -51,13 +51,13 @@
         "nom": "Isabelle Colin",
         "telephone": "0690123456",
         "email": "isabelle.colin@example.com",
-        "adresse": "7 rue Jean Jaur\u00e8s, 59000 Lille"
+        "adresse": "7 rue Jean Jaurès, 59000 Lille"
     },
     {
         "nom": "Julien Lambert",
         "telephone": "0601234567",
         "email": "julien.lambert@example.com",
-        "adresse": "18 chemin des Pr\u00e9s, 72000 Le Mans"
+        "adresse": "18 chemin des Prés, 72000 Le Mans"
     },
     {
         "nom": "Karine Leroy",
@@ -84,13 +84,13 @@
         "adresse": "12 rue des Cerisiers, 49000 Angers"
     },
     {
-        "nom": "Oph\u00e9lie Robin",
+        "nom": "Ophélie Robin",
         "telephone": "0644123456",
         "email": "ophelie.robin@example.com",
         "adresse": "88 rue Victor Hugo, 29200 Brest"
     },
     {
-        "nom": "Pauline No\u00ebl",
+        "nom": "Pauline Noël",
         "telephone": "0677123456",
         "email": "pauline.noel@example.com",
         "adresse": "6 rue Jules Ferry, 76000 Rouen"
@@ -108,19 +108,19 @@
         "adresse": "25 avenue des Pins, 86000 Poitiers"
     },
     {
-        "nom": "St\u00e9phane Fabre",
+        "nom": "Stéphane Fabre",
         "telephone": "0633123456",
         "email": "stephane.fabre@example.com",
-        "adresse": "11 rue de la Libert\u00e9, 38000 Grenoble"
+        "adresse": "11 rue de la Liberté, 38000 Grenoble"
     },
     {
-        "nom": "Th\u00e9o Rolland",
+        "nom": "Théo Rolland",
         "telephone": "0622123456",
         "email": "theo.rolland@example.com",
         "adresse": "76 rue Lafayette, 75009 Paris"
     },
     {
-        "nom": "Ursula Cl\u00e9ment",
+        "nom": "Ursula Clément",
         "telephone": "0688123456",
         "email": "ursula.clement@example.com",
         "adresse": "8 rue des Rosiers, 34000 Montpellier"
@@ -129,7 +129,7 @@
         "nom": "Victor Barre",
         "telephone": "0641123456",
         "email": "victor.barre@example.com",
-        "adresse": "20 rue de la R\u00e9publique, 54000 Nancy"
+        "adresse": "20 rue de la République, 54000 Nancy"
     },
     {
         "nom": "Wendy Roche",
@@ -141,13 +141,13 @@
         "nom": "Xavier Thomas",
         "telephone": "0618123456",
         "email": "xavier.thomas@example.com",
-        "adresse": "66 chemin des Vignes, 25000 Besan\u00e7on"
+        "adresse": "66 chemin des Vignes, 25000 Besançon"
     },
     {
         "nom": "Yasmine Charvet",
         "telephone": "0609123456",
         "email": "yasmine.charvet@example.com",
-        "adresse": "22 rue du Ch\u00e2teau, 42000 Saint-\u00c9tienne"
+        "adresse": "22 rue du Château, 42000 Saint-Étienne"
     },
     {
         "nom": "Zacharie Rey",
@@ -159,7 +159,7 @@
         "nom": "Anne Garnier",
         "telephone": "0691123456",
         "email": "anne.garnier@example.com",
-        "adresse": "90 rue Pierre Curie, 45000 Orl\u00e9ans"
+        "adresse": "90 rue Pierre Curie, 45000 Orléans"
     },
     {
         "nom": "Bastien Roux",
@@ -168,7 +168,7 @@
         "adresse": "30 rue des Fleurs, 37000 Tours"
     },
     {
-        "nom": "C\u00e9line Dubois",
+        "nom": "Céline Dubois",
         "telephone": "0651123456",
         "email": "celine.dubois@example.com",
         "adresse": "7 rue de la Paix, 10000 Troyes"
@@ -180,7 +180,7 @@
         "adresse": "17 avenue Jean Moulin, 17000 La Rochelle"
     },
     {
-        "nom": "\u00c9lodie Pelletier",
+        "nom": "Élodie Pelletier",
         "telephone": "0630123456",
         "email": "elodie.pelletier@example.com",
         "adresse": "50 rue Nationale, 76000 Rouen"
@@ -192,7 +192,7 @@
         "adresse": "13 rue de la Chapelle, 18000 Bourges"
     },
     {
-        "nom": "Gis\u00e8le Aubry",
+        "nom": "Gisèle Aubry",
         "telephone": "0619123456",
         "email": "gisele.aubry@example.com",
         "adresse": "39 rue Saint-Michel, 68000 Colmar"
@@ -201,10 +201,10 @@
         "nom": "Henri Boyer",
         "telephone": "0608123456",
         "email": "henri.boyer@example.com",
-        "adresse": "48 rue Victor Schoelcher, 51000 Ch\u00e2lons-en-Champagne"
+        "adresse": "48 rue Victor Schoelcher, 51000 Châlons-en-Champagne"
     },
     {
-        "nom": "In\u00e8s Faure",
+        "nom": "Inès Faure",
         "telephone": "0699123456",
         "email": "ines.faure@example.com",
         "adresse": "70 rue du Faubourg, 57000 Metz"
@@ -219,49 +219,49 @@
         "nom": "Kevin Lemoine",
         "telephone": "0676123456",
         "email": "kevin.lemoine@example.com",
-        "adresse": "61 avenue du G\u00e9n\u00e9ral de Gaulle, 49000 Angers"
+        "adresse": "61 avenue du Général de Gaulle, 49000 Angers"
     },
     {
         "nom": "Laura Breton",
         "telephone": "0665123456",
         "email": "laura.breton@example.com",
-        "adresse": "4 rue de Verdun, 71000 M\u00e2con"
+        "adresse": "4 rue de Verdun, 71000 Mâcon"
     },
     {
         "nom": "Marcine Bailly",
         "telephone": "0654123456",
         "email": "marcine.bailly@example.com",
-        "adresse": "38 avenue Pasteur, 36000 Ch\u00e2teauroux"
+        "adresse": "38 avenue Pasteur, 36000 Châteauroux"
     },
     {
         "nom": "Marcine Bailly",
         "telephone": "0654123456",
         "email": "marcine.bailly@example.com",
-        "adresse": "38 avenue Pasteur, 36000 Ch\u00e2teauroux"
+        "adresse": "38 avenue Pasteur, 36000 Châteauroux"
     },
     {
         "nom": "Marcine Bailly",
         "telephone": "0654123456",
         "email": "marcine.bailly@example.com",
-        "adresse": "38 avenue Pasteur, 36000 Ch\u00e2teauroux"
+        "adresse": "38 avenue Pasteur, 36000 Châteauroux"
     },
     {
         "nom": "Marcine Bailly",
         "telephone": "0654123456",
         "email": "marcine.bailly@example.com",
-        "adresse": "38 avenue Pasteur, 36000 Ch\u00e2teauroux"
+        "adresse": "38 avenue Pasteur, 36000 Châteauroux"
     },
     {
         "nom": "Marcine Bailly",
         "telephone": "0654123456",
         "email": "marcine.bailly@example.com",
-        "adresse": "38 avenue Pasteur, 36000 Ch\u00e2teauroux"
+        "adresse": "38 avenue Pasteur, 36000 Châteauroux"
     },
     {
         "nom": "Marcine Bailly",
         "telephone": "0654123456",
         "email": "marcine.bailly@example.com",
-        "adresse": "38 avenue Pasteur, 36000 Ch\u00e2teauroux"
+        "adresse": "38 avenue Pasteur, 36000 Châteauroux"
     },
     {
         "nom": "Jean Beaujour",
