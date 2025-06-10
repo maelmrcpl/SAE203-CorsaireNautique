@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'email' => $email,
             'motdepasse' => $hashedPassword,
             'role' => $role,
-            'photo' => $destPath,
+            'photo' => "./" . $destPath,
             'bio' => $bio
         ];
 
