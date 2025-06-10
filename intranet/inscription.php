@@ -13,9 +13,9 @@ if (!isUserAdmin()) {
     exit;
 }
 
-$usersFile = 'data_corsaire/salaries.json';
+$usersFile = 'datas_corsaire/salaries.json';
 $errors = [];
-$uploadDir = 'images_users/';
+$uploadDir = 'image_users/';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $utilisateur = isset($_POST['pseudo']) ? trim($_POST['pseudo']) : '';
